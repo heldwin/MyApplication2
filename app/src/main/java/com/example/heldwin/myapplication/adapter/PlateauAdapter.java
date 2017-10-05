@@ -45,9 +45,9 @@ public class PlateauAdapter extends ArrayAdapter{
         }
 
         vh.iv.setImageResource(bloc.getImage().getImage());
-
         return view;
     }
+
     public class ViewHlderArAdapt{
         public ImageView iv;
 

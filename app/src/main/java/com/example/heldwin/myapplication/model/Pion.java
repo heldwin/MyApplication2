@@ -4,11 +4,11 @@ package com.example.heldwin.myapplication.model;
  * Created by unkls on 04/10/2017.
  */
 
-class Pion {
+public class Pion {
     private int team;
     private Img image;
 
-    Pion(int team, Img image){
+    public Pion(int team, Img image){
         this.team = team;
         this.image = image;
     }

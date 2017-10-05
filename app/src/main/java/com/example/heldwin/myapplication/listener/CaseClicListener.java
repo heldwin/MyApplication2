@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Toast;
+
 import com.example.heldwin.myapplication.model.Case;
 
 
@@ -25,12 +26,6 @@ public class CaseClicListener implements AdapterView.OnItemClickListener{
     }
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        Case j= (Case) adapterView.getAdapter().getItem(i);
-        Toast.makeText(view.getContext(),j.getPositionX()+" "+j.getPositionY(), Toast.LENGTH_SHORT).show();
-
 
     }
-
-
-
 }

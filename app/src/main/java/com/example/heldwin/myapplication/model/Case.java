@@ -16,7 +16,7 @@ public class Case {
 
 
 
-    Case(Pion[] tabPion, Tresor tresor, int type, Img image, int positionX, int positionY){
+    public Case(Pion[] tabPion, Tresor tresor, int type, Img image, int positionX, int positionY){
         this.tabPion = tabPion;
         this.tresor = tresor;
         this.type = type;
@@ -33,5 +33,17 @@ public class Case {
 
     public int getPositionY() {
         return positionY;
+    }
+
+    public void setPositionX(int positionX) {
+        this.positionX = positionX;
+    }
+
+    public void setPositionY(int positionY) {
+        this.positionY = positionY;
+    }
+
+    public void setImage(Img image) {
+        this.image = image;
     }
 }

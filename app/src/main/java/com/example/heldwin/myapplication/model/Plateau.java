@@ -39,4 +39,8 @@ public class Plateau {
     public Case[] getTabCase() {
         return tabCase;
     }
+
+    public void setTabCase(Case[] tabCase) {
+        this.tabCase = tabCase;
+    }
 }
