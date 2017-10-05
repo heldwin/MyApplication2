@@ -1,0 +1,74 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"  tools:context=".activities.MainActivity"
+    >
+
+    <View
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:alpha="0.5"
+        android:layout_alignParentTop="true" />
+
+
+
+
+
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:id="@+id/login"
+        android:hint="@string/login"
+        android:textSize="20sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="47dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:hint="@string/password"
+        android:textSize="20sp"
+        android:id="@+id/password"
+        android:layout_below="@+id/login"
+        android:layout_alignLeft="@+id/login"
+        android:layout_alignStart="@+id/login"
+        android:layout_alignRight="@+id/login"
+        android:layout_alignEnd="@+id/login" />
+    <Button
+        android:id="@+id/connexion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/connexion"
+        android:onClick="goCheck"
+        android:layout_below="@+id/password"
+        android:background="@drawable/btn_menu"
+        android:layout_alignLeft="@+id/login"
+        android:layout_alignStart="@+id/login"
+        />
+    <Button
+        android:id="@+id/save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/save"
+        android:background="@drawable/btn_menu"
+        android:onClick="goSave"
+        android:layout_below="@+id/password"
+        android:layout_toEndOf="@+id/connexion" />
+    <Button
+        android:id="@+id/dispatch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dispatch"
+        android:onClick="goDispatch"
+        android:background="@drawable/btn_menu"
+        android:layout_below="@+id/password"
+        android:layout_toEndOf="@+id/save" />
+
+
+</RelativeLayout>

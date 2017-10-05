@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Mes Jeux</string>
+    <string name="login">Utilisateur</string>
+    <string name="password">Mot de Passe</string>
+    <string name="connexion">Connexion</string>
+    <string name="save">Sauver</string>
+    <string name="dispatch">se Rappeler</string>
+    <string name="dame">Dame</string>
+    <string name="sudoku">Sudoku</string>
+    <string name="p4">Puissance-4</string>
+    <string name="stratego">Stratego</string>
+    <string name="batNav">Bataille Navale</string>
+    <string name="echec">Echecs</string>
+    <string name="vic">Victoire</string>
+</resources>

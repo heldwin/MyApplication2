@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">My Games</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="connexion">Connection</string>
+
+    <string name="dame">Checkers</string>
+    <string name="sudoku">Sudoku</string>
+    <string name="p4">Power-4</string>
+    <string name="ponney">Horses</string>
+    <string name="batNav">Battle ship</string>
+    <string name="echec">Chess</string>
+</resources>
