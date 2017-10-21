@@ -7,12 +7,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
 
-    >
+
+    android:weightSum="1">
 
     <ImageView
         android:id="@+id/layoutImage"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@drawable/case_plateau"
-        />
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:background="@drawable/cadre_case"
+        android:padding="1dp" />
+
 </LinearLayout>
