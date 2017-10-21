@@ -13,16 +13,24 @@ public class Case {
     private Img image;
     private int positionX;
     private int positionY;
+    private int rotation;
+    private Boolean mvtH;
+    private Boolean mvtD;
+    private Boolean mvtB;
+    private Boolean mvtG;
 
-
-
-    public Case(Pion[] tabPion, Tresor tresor, int type, Img image, int positionX, int positionY){
+    public Case(Pion[] tabPion, Tresor tresor, int type, Img image, int positionX, int positionY, int rotation, Boolean mvtH, Boolean mvtD, Boolean mvtB,Boolean mvtG){
         this.tabPion = tabPion;
         this.tresor = tresor;
         this.type = type;
         this.image = image;
         this.positionX = positionX;
         this.positionY = positionY;
+        this.rotation = rotation;
+        this.mvtH = mvtH;
+        this.mvtD = mvtD;
+        this.mvtB = mvtB;
+        this.mvtG = mvtG;
     }
     public Img getImage() {
         return image;
