@@ -6,6 +6,6 @@ import android.support.v7.app.AppCompatActivity;
  * Created by heldwin on 03/10/2017.
  */
 
-public class StrategoActivity extends AppCompatActivity{
+public class LabyrintheActivity extends AppCompatActivity{
 
 }

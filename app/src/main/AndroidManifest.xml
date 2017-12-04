@@ -27,7 +27,7 @@
         <activity android:name=".activities.games.PussanceActivity">
 
         </activity>
-        <activity android:name=".activities.games.StrategoActivity">
+        <activity android:name=".activities.games.LabyrintheActivity">
 
         </activity>
         <activity android:name=".activities.games.EchecActivity">
