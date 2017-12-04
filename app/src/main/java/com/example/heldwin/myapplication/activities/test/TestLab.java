@@ -71,19 +71,18 @@ public class TestLab  extends AppCompatActivity{
         switch (posY){
             case 0:
                 if (posX == 1 ){
-                    pousserY();
+                    pousserY(1);
                 }
                 else if (posX == 3 ){
-
+                    pousserY(3);
 
                 }
                 else if (posX == 5){
-
+                    pousserY(5);
 
                 }
             case 6:
                 if (posX == 1 ){
-
                 }
                 else if (posX == 3 ){
 
@@ -95,13 +94,13 @@ public class TestLab  extends AppCompatActivity{
     }
 
 //faire bouger à l'envers case tampons prenend dernière case ce qui crée une case vide on remonte avec la case vide puis on met la case 7,0 dans la première
-    public void pousserY(){
+    public void pousserY(int Y){
 
         final Case[] tabCase = P.getTabCase();
         List<Integer> list = new ArrayList<Integer>(); // creer une liste de case à bouger
         Case cs = tabCase[44];
         for (int i = 0; i<50; i++) { // on les cherches toutes
-            if (tabCase[i].getPositionY() == 1) {
+            if (tabCase[i].getPositionY() == Y) {
                 list.add(i); // on list les position à changer
             }
         }
@@ -120,7 +119,7 @@ public class TestLab  extends AppCompatActivity{
 
         }
         tabCase[list.get(i)]=tabCase[49]; // à faire à la main
-        tabCase[list.get(i)].setPositionY(1);
+        tabCase[list.get(i)].setPositionY(Y);
         tabCase[list.get(i)].setPositionX(0);
 
         tabCase[49]=tampon; // change la case 49 pour la prochaine ligne à pousser
@@ -128,6 +127,19 @@ public class TestLab  extends AppCompatActivity{
         tabCase[49].setPositionY(0);
         adapter.notifyDataSetChanged(); // sert à rafraichir le gridView
         gridViewPlateau.setAdapter(adapter);// le rafraichis ici
+    }
+
+    public void pousserYBas(int Y){
+        final Case[] tabCase = P.getTabCase();
+        List<Integer> list = new ArrayList<Integer>(); // creer une liste de case à bouger
+        Case cs = tabCase[44];
+        for (int i = 0; i<50; i++) { // on les cherches toutes
+            if (tabCase[i].getPositionY() == Y) {
+                list.add(i); // on list les position à changer
+            }
+        }
+        Case tampon = null;
+        tampon = tabCase[list.get(list.size()-1)]; // on met la derniere case dans le tampon
 
     }
 }
