@@ -94,9 +94,97 @@ public class TestLab  extends AppCompatActivity{
 
                 }
         }
+        switch (posX){
+            case 0:
+            if (posY == 1) {
+                pousserX(1);
+            }
+            if (posY == 3) {
+                pousserX(3);
+            }
+
+            if (posY == 5) {
+                pousserX(5);
+            }
+
+            case 6:
+                if (posY == 1) {
+                    pousserXBas(1);
+                }
+                if (posY == 3) {
+                    pousserXBas(3);
+                }
+
+                if (posY == 5) {
+                    pousserXBas(5);
+                }
+        }
     }
 
-//faire bouger à l'envers case tampons prenend dernière case ce qui crée une case vide on remonte avec la case vide puis on met la case 7,0 dans la première
+    private void pousserX(int X) {
+        Case tampon = null;
+        final Case[] tabCase = P.getTabCase();
+        List<Integer> list = new ArrayList<Integer>(); // creer une liste de case à bouger
+        Case cs = tabCase[44];
+        for (int i = 0; i<50; i++) { // on les cherches toutes
+            if (tabCase[i].getPositionX() == X) {
+                list.add(i); // on list les position à changer
+                Log.e("LIST CASE", "LA CASE = "+ i);
+            }
+        }
+        tampon = tabCase[list.get(list.size()-1)];
+
+        for (int i = list.size()-1; i!=0;i--){
+            tabCase[list.get(i)] = tabCase[list.get(i-1)];
+        }
+
+        //tabCase[list.get(0)].setPositionY(0);
+        //tabCase[list.get(0)].setPositionX(X);
+
+        tabCase[list.get(0)]=tabCase[49];
+        tabCase[list.get(0)].setPositionY(0);
+        tabCase[list.get(0)].setPositionX(X);
+
+        tabCase[49]=tampon;
+        tabCase[49].setPositionY(X);
+        tabCase[49].setPositionX(6);
+
+        adapter.notifyDataSetChanged(); // sert à rafraichir le gridView
+        gridViewPlateau.setAdapter(adapter);// le rafraichis ici
+    }
+
+    public void pousserXBas(int X){
+        final Case[] tabCase = P.getTabCase();
+        Case tampon = null;
+
+        List<Integer> list = new ArrayList<Integer>(); // creer une liste de case à bouger
+        Case cs = tabCase[44];
+        for (int i = 0; i<50; i++) { // on les cherches toutes
+            if (tabCase[i].getPositionX() == X) {
+                list.add(i); // on list les position à changer
+                Log.e("LIST CASE", "LA CASE = "+ i);
+            }
+        }
+        tampon = tabCase[list.get(0)];
+        for (int i = 0; i!=list.size()-1;i++){
+            tabCase[list.get(i)] = tabCase[list.get(i+1)];
+        }
+        tabCase[list.get(0)].setPositionY(6);
+        tabCase[list.get(0)].setPositionX(X);
+
+        tabCase[list.get(list.size()-1)]=tabCase[49];
+        tabCase[list.get(list.size()-1)].setPositionY(6);
+        tabCase[list.get(list.size()-1)].setPositionX(X);
+
+        tabCase[49]=tampon;
+        tabCase[49].setPositionY(0);
+        tabCase[49].setPositionX(X);
+
+        adapter.notifyDataSetChanged(); // sert à rafraichir le gridView
+        gridViewPlateau.setAdapter(adapter);// le rafraichis ici
+    }
+
+    //faire bouger à l'envers case tampons prenend dernière case ce qui crée une case vide on remonte avec la case vide puis on met la case 7,0 dans la première
     public void pousserY(int Y){
 
         final Case[] tabCase = P.getTabCase();
