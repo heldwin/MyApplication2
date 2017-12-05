@@ -83,11 +83,14 @@ public class TestLab  extends AppCompatActivity{
                 }
             case 6:
                 if (posX == 1 ){
+                    pousserYBas(1);
                 }
                 else if (posX == 3 ){
+                    pousserYBas(3);
 
                 }
                 else if (posX == 5){
+                    pousserYBas(5);
 
                 }
         }
@@ -97,49 +100,63 @@ public class TestLab  extends AppCompatActivity{
     public void pousserY(int Y){
 
         final Case[] tabCase = P.getTabCase();
+        Case tampon = null;
+
         List<Integer> list = new ArrayList<Integer>(); // creer une liste de case à bouger
         Case cs = tabCase[44];
         for (int i = 0; i<50; i++) { // on les cherches toutes
             if (tabCase[i].getPositionY() == Y) {
                 list.add(i); // on list les position à changer
+                Log.e("LIST CASE", "LA CASE = "+ i);
             }
         }
-        Case tampon = null;
-        tampon = tabCase[list.get(list.size()-1)]; // on met la derniere case dans le tampon
-        int i = list.size()-1; // on prend la derière valeur de la list
-        int p = list.size()-2; // on prend l'avant dernière valeur de la list
-
-        while(p>=0){ //pour pas aller trop loin et taper hors du tableau
-            Log.e("DEBUG","P à pour valeur "+list.get(p)+" et i a pour valeur "+ list.get(i));
-            tabCase[list.get(i)]=tabCase[list.get(p)]; // on met la case -1 dans la case -2 (comme expliquer à l'oral)
-            tabCase[list.get(i)].setPositionX(i);
-            i--;
-            p--;
-            Log.e("DEBUG"," i à pour X " +tabCase[list.get(i)].getPositionX());
-
+        tampon = tabCase[list.get(list.size()-1)];
+        for (int i = list.size()-1; i!=0;i--){
+            tabCase[list.get(i)] = tabCase[list.get(i-1)];
         }
-        tabCase[list.get(i)]=tabCase[49]; // à faire à la main
-        tabCase[list.get(i)].setPositionY(Y);
-        tabCase[list.get(i)].setPositionX(0);
+        tabCase[list.get(0)].setPositionY(Y);
+        tabCase[list.get(0)].setPositionX(0);
 
-        tabCase[49]=tampon; // change la case 49 pour la prochaine ligne à pousser
-        tabCase[49].setPositionX(7);
-        tabCase[49].setPositionY(0);
+        tabCase[list.get(list.size()-1)]=tabCase[49];
+        tabCase[list.get(list.size()-1)].setPositionY(Y);
+        tabCase[list.get(list.size()-1)].setPositionX(6);
+
+        tabCase[49]=tampon;
+        tabCase[49].setPositionY(Y);
+        tabCase[49].setPositionX(6);
+
         adapter.notifyDataSetChanged(); // sert à rafraichir le gridView
         gridViewPlateau.setAdapter(adapter);// le rafraichis ici
     }
 
     public void pousserYBas(int Y){
         final Case[] tabCase = P.getTabCase();
+        Case tampon = null;
+
         List<Integer> list = new ArrayList<Integer>(); // creer une liste de case à bouger
         Case cs = tabCase[44];
         for (int i = 0; i<50; i++) { // on les cherches toutes
             if (tabCase[i].getPositionY() == Y) {
                 list.add(i); // on list les position à changer
+                Log.e("LIST CASE", "LA CASE = "+ i);
             }
         }
-        Case tampon = null;
-        tampon = tabCase[list.get(list.size()-1)]; // on met la derniere case dans le tampon
+        tampon = tabCase[list.get(0)];
+        for (int i = 0; i!=list.size()-1;i++){
+            tabCase[list.get(i)] = tabCase[list.get(i+1)];
+        }
+        tabCase[list.get(0)].setPositionY(Y);
+        tabCase[list.get(0)].setPositionX(0);
 
+        tabCase[list.get(list.size()-1)]=tabCase[49];
+        tabCase[list.get(list.size()-1)].setPositionY(Y);
+        tabCase[list.get(list.size()-1)].setPositionX(6);
+
+        tabCase[49]=tampon;
+        tabCase[49].setPositionY(Y);
+        tabCase[49].setPositionX(6);
+
+        adapter.notifyDataSetChanged(); // sert à rafraichir le gridView
+        gridViewPlateau.setAdapter(adapter);// le rafraichis ici
     }
 }
